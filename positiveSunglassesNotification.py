@@ -1,3 +1,5 @@
+# Nahuel Montes de Oca
+
 import json
 import urllib.parse
 import boto3
@@ -5,12 +7,9 @@ import boto3
 print('Loading function')
 
 sns_client = boto3.client('sns')
-snsArn = 'arn:aws:sns:us-east-2:011532603480:RekoNotification'
+snsArn = '---------------'
 
 def lambda_handler(event, context):
-    #print("Received event: " + json.dumps(event, indent=2))
-
-
     # Get the object from the event and show its content type
     bucket = event['Records'][0]['s3']['bucket']['name']
     file_name = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
