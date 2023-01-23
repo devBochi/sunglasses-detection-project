@@ -1,3 +1,5 @@
+# Nahuel Montes de Oca
+
 import json
 import boto3
 import urllib.parse
@@ -10,8 +12,6 @@ def lambda_handler(event, context):
     # Get the object from the event
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
-    # bucket = "nmdo-duadumps"
-    # key = "FjFhJrmXoAAvz4L.png"    
     try:
         # Rekognition
         face_response = reko_client.detect_faces(
